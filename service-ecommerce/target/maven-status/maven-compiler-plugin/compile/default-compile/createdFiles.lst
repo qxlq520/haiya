@@ -1,0 +1,8 @@
+com\haiya\ecommerce\EcommerceServiceApplication.class
+com\haiya\ecommerce\entity\Product.class
+com\haiya\ecommerce\entity\Order.class
+com\haiya\ecommerce\controller\EcommerceController.class
+com\haiya\ecommerce\repository\ProductRepository.class
+com\haiya\ecommerce\service\ProductService.class
+com\haiya\ecommerce\service\OrderService.class
+com\haiya\ecommerce\repository\OrderRepository.class

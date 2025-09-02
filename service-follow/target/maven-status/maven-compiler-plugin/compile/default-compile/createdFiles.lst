@@ -1,0 +1,6 @@
+com\haiya\follow\service\FollowService.class
+com\haiya\follow\dto\FollowDto.class
+com\haiya\follow\FollowServiceApplication.class
+com\haiya\follow\entity\Follow.class
+com\haiya\follow\controller\FollowController.class
+com\haiya\follow\repository\FollowRepository.class
