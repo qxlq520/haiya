@@ -1,0 +1,24 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: service-analytics
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/haiya_analytics
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    '[com.haiya.payment]': DEBUG
+    '[org.springframework.web]': DEBUG
+    '[org.springframework.data.mongodb]': DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/analytics-service.log

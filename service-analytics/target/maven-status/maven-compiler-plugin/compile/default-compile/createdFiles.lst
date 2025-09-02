@@ -1,0 +1,16 @@
+com\haiya\analytics\entity\Trend.class
+com\haiya\analytics\entity\OperationCampaign$CampaignStatus.class
+com\haiya\analytics\entity\UserSegment$SegmentType.class
+com\haiya\analytics\controller\AnalyticsController.class
+com\haiya\analytics\service\impl\AnalyticsServiceImpl.class
+com\haiya\analytics\repository\UserActivityRepository.class
+com\haiya\analytics\entity\CompetitorAnalysis.class
+com\haiya\analytics\entity\UserSegment.class
+com\haiya\analytics\entity\CompetitorAnalysis$MetricType.class
+com\haiya\analytics\entity\OperationCampaign.class
+com\haiya\analytics\service\AnalyticsService.class
+com\haiya\analytics\entity\UserActivity.class
+com\haiya\analytics\AnalyticsServiceApplication.class
+com\haiya\analytics\entity\Trend$TrendType.class
+com\haiya\analytics\service\AnalyticsServiceInterface.class
+com\haiya\analytics\entity\ContentQuality.class

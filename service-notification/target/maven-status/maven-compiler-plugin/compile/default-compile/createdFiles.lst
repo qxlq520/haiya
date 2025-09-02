@@ -1,0 +1,5 @@
+com\haiya\notification\entity\Notification.class
+com\haiya\notification\NotificationServiceApplication.class
+com\haiya\notification\controller\NotificationController.class
+com\haiya\notification\service\NotificationService.class
+com\haiya\notification\repository\NotificationRepository.class

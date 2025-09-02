@@ -1,0 +1,22 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: service-recommend
+  datasource:
+    url: jdbc:mysql://localhost:3306/haiya_recommend?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: qq9291923
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true

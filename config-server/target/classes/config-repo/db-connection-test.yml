@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/haiya_user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: qq9291923
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
