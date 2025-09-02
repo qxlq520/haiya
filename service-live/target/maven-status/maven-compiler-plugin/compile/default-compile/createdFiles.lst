@@ -1,0 +1,5 @@
+com\haiya\live\entity\LiveStream.class
+com\haiya\live\controller\LiveStreamController.class
+com\haiya\live\service\LiveStreamService.class
+com\haiya\live\LiveServiceApplication.class
+com\haiya\live\repository\LiveStreamRepository.class

@@ -1,0 +1,164 @@
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.mllib.recommendation.ALS;
+import org.apache.spark.mllib.recommendation.MatrixFactorizationModel;
+import org.apache.spark.mllib.recommendation.Rating;
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaRDD;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+/**
+ * 协同过滤推荐服务实现
+ * 使用Spark MLlib实现协同过滤算法
+ */
+@Service
+public class CollaborativeFilteringService {
+    
+    private static final Logger logger = LoggerFactory.getLogger(CollaborativeFilteringService.class);
+    
+    // Spark上下文
+    private transient JavaSparkContext sparkContext;
+    
+    @PostConstruct
+    public void init() {
+        try {
+            SparkConf conf = new SparkConf().setAppName("RecommendationService").setMaster("local[*]");
+            sparkContext = new JavaSparkContext(conf);
+            logger.info("Spark context initialized successfully");
+        } catch (Exception e) {
+            logger.error("Failed to initialize Spark context", e);
+        }
+    }
+    
+    @PreDestroy
+    public void cleanup() {
+        if (sparkContext != null) {
+            sparkContext.close();
+            logger.info("Spark context closed");
+        }
+    }
+    
+    /**
+     * 基于用户评分的协同过滤推荐
+     * @param userId 用户ID
+     * @param count 推荐数量
+     * @param ratings 所有用户评分数据
+     * @return 推荐的视频ID列表
+     */
+    public List<Long> recommendByUserRatings(Long userId, int count, List<UserRating> ratings) {
+        if (sparkContext == null) {
+            logger.error("Spark context is not initialized");
+            return new ArrayList<>();
+        }
+        
+        try {
+            // 将评分数据转换为Spark RDD
+            List<Rating> sparkRatings = ratings.stream()
+                .map(r -> new Rating(r.getUserId().intValue(), r.getVideoId().intValue(), (float) r.getScore()))
+                .collect(Collectors.toList());
+            
+            JavaRDD<Rating> ratingsRDD = sparkContext.parallelize(sparkRatings);
+            
+            // 使用ALS算法训练模型
+            MatrixFactorizationModel model = ALS.train(JavaRDD.toRDD(ratingsRDD), 10, 10, 0.01);
+            
+            // 获取用户未评分的视频
+            // 这里简化处理，实际应用中需要从数据库查询用户未评分的视频
+            // 此处仅作演示用途
+            List<Rating> recommendations = new ArrayList<>();
+            
+            // 返回推荐结果
+            return recommendations.stream()
+                .map(rating -> (long) rating.product())
+                .limit(count)
+                .collect(Collectors.toList());
+                
+        } catch (Exception e) {
+            logger.error("Failed to generate collaborative filtering recommendations", e);
+            return new ArrayList<>();
+        }
+    }
+    
+    /**
+     * 基于物品的协同过滤推荐
+     * @param videoId 视频ID
+     * @param count 推荐数量
+     * @param ratings 所有用户评分数据
+     * @return 推荐的视频ID列表
+     */
+    public List<Long> recommendByItemSimilarity(Long videoId, int count, List<UserRating> ratings) {
+        if (sparkContext == null) {
+            logger.error("Spark context is not initialized");
+            return new ArrayList<>();
+        }
+        
+        try {
+            // 将评分数据转换为Spark RDD
+            List<Rating> sparkRatings = ratings.stream()
+                .map(r -> new Rating(r.getUserId().intValue(), r.getVideoId().intValue(), (float) r.getScore()))
+                .collect(Collectors.toList());
+            
+            JavaRDD<Rating> ratingsRDD = sparkContext.parallelize(sparkRatings);
+            
+            // 使用ALS算法训练模型
+            MatrixFactorizationModel model = ALS.train(JavaRDD.toRDD(ratingsRDD), 10, 10, 0.01);
+            
+            // 获取与指定视频相似的视频
+            // 这里简化处理，实际应用中需要计算视频之间的相似度
+            // 此处仅作演示用途
+            List<Rating> recommendations = new ArrayList<>();
+            
+            // 返回推荐结果
+            return recommendations.stream()
+                .map(rating -> (long) rating.product())
+                .limit(count)
+                .collect(Collectors.toList());
+                
+        } catch (Exception e) {
+            logger.error("Failed to generate item-based collaborative filtering recommendations", e);
+            return new ArrayList<>();
+        }
+    }
+    
+    /**
+     * 实时协同过滤推荐
+     * @param userId 用户ID
+     * @param count 推荐数量
+     * @param recentRatings 用户最近的评分数据
+     * @return 推荐的视频ID列表
+     */
+    public List<Long> realTimeRecommendations(Long userId, int count, List<UserRating> recentRatings) {
+        if (sparkContext == null) {
+            logger.error("Spark context is not initialized");
+            return new ArrayList<>();
+        }
+        
+        try {
+            // 将评分数据转换为Spark RDD
+            List<Rating> sparkRatings = recentRatings.stream()
+                .map(r -> new Rating(r.getUserId().intValue(), r.getVideoId().intValue(), (float) r.getScore()))
+                .collect(Collectors.toList());
+            
+            JavaRDD<Rating> ratingsRDD = sparkContext.parallelize(sparkRatings);
+            
+            // 使用ALS算法训练模型
+            MatrixFactorizationModel model = ALS.train(JavaRDD.toRDD(ratingsRDD), 5, 5, 0.01);
+            
+            // 生成实时推荐
+            // 这里简化处理，实际应用中需要更复杂的实时推荐逻辑
+            // 此处仅作演示用途
+            List<Rating> recommendations = new ArrayList<>();
+            
+            // 返回推荐结果
+            return recommendations.stream()
+                .map(rating -> (long) rating.product())
+                .limit(count)
+                .collect(Collectors.toList());
+                
+        } catch (Exception e) {
+            logger.error("Failed to generate real-time collaborative filtering recommendations", e);
+            return new ArrayList<>();
+        }
+    }
+}

@@ -1,0 +1,10 @@
+com\haiya\search\service\SearchDiscoveryService.class
+com\haiya\search\controller\SearchController.class
+com\haiya\search\service\SearchService.class
+com\haiya\search\entity\SearchRecord$SearchType.class
+com\haiya\search\entity\SearchDocument.class
+com\haiya\search\entity\DiscoveryContent.class
+com\haiya\search\repository\SearchDocumentRepository.class
+com\haiya\search\entity\DiscoveryContent$ContentType.class
+com\haiya\search\SearchServiceApplication.class
+com\haiya\search\entity\SearchRecord.class

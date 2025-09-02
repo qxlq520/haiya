@@ -1,0 +1,10 @@
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\controller\RecommendController.java
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\entity\UserRating.java
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\entity\UserBehavior.java
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\entity\VideoFeature.java
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\entity\UserProfile.java
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\service\CollaborativeFilteringService.java
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\service\RecommendationService.java
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\RecommendServiceApplication.java
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\service\impl\DeepLearningRecommendationServiceImpl.java
+E:\root\haiya\haiya-backend\service-recommend\src\main\java\com\haiya\recommend\service\AIContentCreationService.java

@@ -1,0 +1,16 @@
+com\haiya\recommend\service\AIContentCreationService$PerformancePrediction.class
+com\haiya\recommend\entity\UserProfile.class
+com\haiya\recommend\RecommendServiceApplication.class
+com\haiya\recommend\service\AIContentCreationService$ContentAnalysis.class
+com\haiya\recommend\service\AIContentCreationService$ContentSuggestion.class
+com\haiya\recommend\service\impl\DeepLearningRecommendationServiceImpl.class
+com\haiya\recommend\service\AIContentCreationService.class
+com\haiya\recommend\service\AIContentCreationService$OptimizationRecommendation.class
+com\haiya\recommend\entity\VideoFeature.class
+com\haiya\recommend\controller\RecommendController.class
+com\haiya\recommend\service\RecommendationService.class
+com\haiya\recommend\entity\UserRating.class
+com\haiya\recommend\service\CollaborativeFilteringService.class
+com\haiya\recommend\service\AIContentCreationService$ContentSuggestion$SuggestionType.class
+com\haiya\recommend\entity\UserBehavior$BehaviorType.class
+com\haiya\recommend\entity\UserBehavior.class
