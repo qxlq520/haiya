@@ -1,3 +1,5 @@
+仿抖音后端全功能注册服务
+
 haiya-backend/
 ├── config-server/                 # 配置服务器
 ├── infrastructure-deploy/         # 基础设施部署模块
