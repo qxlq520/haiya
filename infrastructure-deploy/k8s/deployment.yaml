@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: infrastructure-deploy
+  labels:
+    app: infrastructure-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: infrastructure-deploy
+  template:
+    metadata:
+      labels:
+        app: infrastructure-deploy
+    spec:
+      containers:
+      - name: infrastructure-deploy
+        image: haiya/infrastructure-deploy:1.0.0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "k8s"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: infrastructure-deploy-service
+spec:
+  selector:
+    app: infrastructure-deploy
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  type: ClusterIP

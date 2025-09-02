@@ -1,0 +1,174 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: infrastructure-monitoring
+  boot:
+    admin:
+      client:
+        url: http://localhost:8085/admin
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+      percentiles:
+        "[http.server.requests]": 
+          - 0.5
+          - 0.9
+          - 0.95
+          - 0.99
+      slo:
+        "[http.server.requests]": 
+          - 1ms
+          - 5ms
+          - 10ms
+          - 50ms
+          - 100ms
+          - 500ms
+          - 1s
+          - 5s
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# SkyWalking APM 配置
+skywalking:
+  agent:
+    service_name: haiya-infrastructure-monitoring
+    collector_backend_services: localhost:11800
+  meter:
+    report_interval: 10
+
+# 基础设施监控配置
+infrastructure:
+  monitoring:
+    # CPU监控配置
+    cpu:
+      enabled: true
+      threshold:
+        warning: 80 # CPU使用率警告阈值(%)
+        critical: 90 # CPU使用率严重阈值(%)
+    
+    # 内存监控配置
+    memory:
+      enabled: true
+      threshold:
+        warning: 80 # 内存使用率警告阈值(%)
+        critical: 90 # 内存使用率严重阈值(%)
+    
+    # 磁盘监控配置
+    disk:
+      enabled: true
+      threshold:
+        warning: 85 # 磁盘使用率警告阈值(%)
+        critical: 95 # 磁盘使用率严重阈值(%)
+    
+    # 网络监控配置
+    network:
+      enabled: true
+      threshold:
+        latency:
+          warning: 100 # 网络延迟警告阈值(ms)
+          critical: 500 # 网络延迟严重阈值(ms)
+        packetLoss:
+          warning: 1 # 丢包率警告阈值(%)
+          critical: 5 # 丢包率严重阈值(%)
+
+# 应用性能监控配置
+application:
+  monitoring:
+    # QPS监控配置
+    qps:
+      threshold:
+        warning: 1000 # QPS警告阈值
+        critical: 5000 # QPS严重阈值
+    
+    # 响应时间监控配置
+    responseTime:
+      threshold:
+        warning: 500 # 响应时间警告阈值(ms)
+        critical: 2000 # 响应时间严重阈值(ms)
+    
+    # 错误率监控配置
+    errorRate:
+      threshold:
+        warning: 1 # 错误率警告阈值(%)
+        critical: 5 # 错误率严重阈值(%)
+
+# 告警配置
+alerting:
+  enabled: true
+  # 告警级别配置
+  levels:
+    warning:
+      channels: [email] # 告警方式
+      repeatInterval: 300 # 重复告警间隔(秒)
+    critical:
+      channels: [email, sms] # 告警方式
+      repeatInterval: 60 # 重复告警间隔(秒)
+    emergency:
+      channels: [email, sms, phone] # 告警方式
+      repeatInterval: 30 # 重复告警间隔(秒)
+  
+  # 告警通道配置
+  channels:
+    email:
+      enabled: true
+      smtp:
+        host: smtp.example.com
+        port: 587
+        username: monitoring@haiya.com
+        password: password
+      recipients:
+        - admin@haiya.com
+        - devops@haiya.com
+    
+    sms:
+      enabled: true
+      provider: aliyun
+      accessKeyId: your-access-key-id
+      accessKeySecret: your-access-key-secret
+      signName: 海牙平台
+      templateCode: SMS_XXXXXXXXX
+    
+    phone:
+      enabled: true
+      provider: aliyun
+      accessKeyId: your-access-key-id
+      accessKeySecret: your-access-key-secret
+      ttsCode: TTS_XXXXXXXXX
+
+# 自动扩容配置
+autoscaling:
+  enabled: true
+  # CPU使用率触发自动扩容阈值
+  cpuThreshold: 75
+  # 内存使用率触发自动扩容阈值
+  memoryThreshold: 80
+  # 最小实例数
+  minInstances: 2
+  # 最大实例数
+  maxInstances: 10
+  # 扩容冷却时间(秒)
+  cooldown: 300

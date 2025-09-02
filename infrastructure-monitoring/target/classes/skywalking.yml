@@ -1,0 +1,44 @@
+# SkyWalking APM 配置文件
+
+# Agent配置
+agent:
+  # 服务名称
+  service_name: haiya-infrastructure-monitoring
+  # 忽略的操作名称
+  ignore_suffix: .jpg,.jpeg,.js,.css,.png,.bmp,.gif,.ico,.mp3,.mp4,.html,.svg
+  # 是否启用调试模式
+  is_open_debugging_class: false
+  # 报告心跳周期（秒）
+  heartbeat_period: 30
+
+# Collector配置
+collector:
+  # SkyWalking OAP服务器地址
+  backend_service: localhost:11800
+
+# 日志配置
+log:
+  # 是否启用SkyWalking格式日志
+  enable: true
+
+# 插件配置
+plugin:
+  # Spring插件配置
+  spring:
+    # 是否启用Spring MVC插件
+    mvc:
+      enabled: true
+  # 数据库插件配置
+  database:
+    # 是否启用数据库插件
+    enabled: true
+  # HTTP客户端插件配置
+  http:
+    # 是否启用HTTP客户端插件
+    client:
+      enabled: true
+
+# Meter配置
+meter:
+  # 指标报告间隔（秒）
+  report_interval: 10
