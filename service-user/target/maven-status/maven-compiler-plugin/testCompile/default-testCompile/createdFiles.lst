@@ -1,0 +1,5 @@
+com\haiya\user\entity\UserTest.class
+com\haiya\user\controller\UserControllerTest.class
+com\haiya\user\repository\UserRepositoryTest.class
+com\haiya\user\TestConfig.class
+com\haiya\user\UserServiceApplicationTests.class

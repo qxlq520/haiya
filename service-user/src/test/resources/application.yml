@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ''
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+  autoconfigure:
+    exclude: >
+      org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration,
+      org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration,
+      org.springframework.boot.autoconfigure.security.oauth2.OAuth2AutoConfiguration,
+      org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerAutoConfiguration,
+      org.springframework.boot.autoconfigure.security.saml2.Saml2RelyingPartyAutoConfiguration,
+      org.springframework.boot.autoconfigure.security.rsocket.RSocketSecurityAutoConfiguration,
+      org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurityAutoConfiguration,
+      org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration,
+      org.springframework.boot.autoconfigure.web.reactive.WebFluxAutoConfiguration,
+      org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration,
+      org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration,
+      org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration,
+      org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,
+      org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration,
+      org.springframework.boot.autoconfigure.web.servlet.DispatcherServletRegistrationBean,
+      org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration,
+      org.springframework.cloud.netflix.eureka.EurekaDiscoveryClientConfiguration,
+      org.springframework.cloud.netflix.eureka.loadbalancer.EurekaLoadBalancerClientConfiguration,
+      org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration,
+      org.springframework.cloud.netflix.eureka.EurekaInstanceAutoConfiguration,
+      org.springframework.cloud.netflix.eureka.EurekaDiscoveryClientConfiguration,
+      org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration,
+      org.springframework.cloud.netflix.eureka.loadbalancer.EurekaLoadBalancerClientConfiguration,
+      org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration,
+      org.springframework.cloud.netflix.eureka.EurekaInstanceAutoConfiguration
+
+logging:
+  level:
+    '[com.haiya.user]': DEBUG
+
+server:
+  error:
+    include-message: always
+
+eureka:
+  client:
+    enabled: false
