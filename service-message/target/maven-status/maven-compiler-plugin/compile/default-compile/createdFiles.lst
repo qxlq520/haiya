@@ -1,0 +1,9 @@
+com\haiya\message\controller\ChatController.class
+com\haiya\message\controller\ChatMessage.class
+com\haiya\message\config\WebSocketConfig.class
+com\haiya\message\entity\Message.class
+com\haiya\message\controller\ChatMessage$MessageType.class
+com\haiya\message\repository\MessageRepository.class
+com\haiya\message\controller\MessageController.class
+com\haiya\message\service\MessageService.class
+com\haiya\message\MessageServiceApplication.class

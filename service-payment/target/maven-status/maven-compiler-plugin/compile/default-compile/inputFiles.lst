@@ -1,0 +1,15 @@
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\controller\PaymentController.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\entity\VipLevel.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\entity\Payment.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\entity\UserAccount.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\entity\AdRevenue.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\entity\Currency.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\service\RevenueService.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\PaymentServiceApplication.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\service\PaymentService.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\entity\UserVip.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\service\VirtualCurrencyService.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\service\VipService.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\entity\Transaction.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\entity\BrandPartnership.java
+E:\root\haiya\haiya-backend\service-payment\src\main\java\com\haiya\payment\repository\PaymentRepository.java
