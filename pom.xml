@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.haiya</groupId>
+    <artifactId>haiya-backend</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>haiya-backend</name>
+    <description>Backend services for Haiya Platform</description>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.boot.version>2.7.5</spring.boot.version>
+        <spring.cloud.version>2021.0.5</spring.cloud.version>
+        <alibaba.cloud.version>2021.0.5.0</alibaba.cloud.version>
+        <mysql.connector.version>8.0.33</mysql.connector.version>
+    </properties>
+
+    <modules>
+        <module>service-storage</module>
+        <module>service-registry</module>
+        <module>service-gateway</module>
+        <module>service-user</module>
+        <module>service-video</module>
+        <module>service-live</module>
+        <module>service-recommend</module>
+        <module>service-search</module>
+        <module>service-payment</module>
+        <module>service-message</module>
+        <module>config-server</module>
+        <module>service-notification</module>
+        <module>service-analytics</module>
+        <module>service-comment</module>
+        <module>service-like</module>
+        <module>service-follow</module>
+        <!-- 内容创作相关模块 -->
+        <module>service-camera</module>
+        <module>service-editor</module>
+        <module>service-effect</module>
+        <module>service-audio</module>
+        <!-- 机器学习平台模块 -->
+        <module>service-ml-platform</module>
+        <!-- 电商相关模块 -->
+        <module>service-ecommerce</module>
+        <module>service-product</module>
+        <module>service-order</module>
+        <module>service-cart</module>
+        <!-- 社交功能扩展模块 -->
+        <module>service-im</module>
+        <module>service-group</module>
+        <module>service-topic</module>
+        <!-- 直播功能扩展模块 -->
+        <module>service-gift</module>
+        <module>service-live-interaction</module>
+        <!-- 内容审核和安全模块 -->
+        <module>service-moderation</module>
+        <module>service-content-security</module>
+        <!-- 数据分析和运营模块 -->
+        <module>service-bi</module>
+        <module>service-dashboard</module>
+        <!-- 广告系统模块 -->
+        <module>service-ad</module>
+        <module>service-ad-analytics</module>
+        <!-- 活动和挑战模块 -->
+        <module>service-campaign</module>
+        <!-- 多媒体处理集群模块 -->
+        <module>service-transcoder</module>
+        <module>service-media-processing</module>
+        <!-- 基础设施和运维相关模块 -->
+        <module>infrastructure-deploy</module>
+        <module>infrastructure-monitoring</module>
+        <module>infrastructure-logging</module>
+        <module>service-mesh</module>
+        <!-- 大数据平台模块 -->
+        <module>service-data-collector</module>
+        <module>service-real-time-processing</module>
+        <module>service-data-warehouse</module>
+        <module>service-feature-engineering</module>
+        <!-- 用户体验增强功能 -->
+        <module>service-localization</module>
+        <module>service-accessibility</module>
+        <!-- 高级社交功能 -->
+        <module>service-qanda</module>
+        <!-- 创作者工具和生态系统 -->
+        <module>service-creator-tools</module>
+        <!-- 高级电商功能 -->
+        <module>service-virtual-tryon</module>
+        <module>service-supply-chain</module>
+        <module>service-logistics</module>
+        <!-- 高级内容功能 -->
+        <module>service-article</module>
+        <module>service-story</module>
+        <module>service-ar-vr</module>
+        <!-- 技术架构增强 -->
+        <module>service-database-sharding</module>
+        <module>service-distributed-transaction</module>
+        <!-- 安全和合规功能 -->
+        <module>service-copyright</module>
+        <module>service-minor-protection</module>
+        <!-- 国际化和本地化 -->
+        <module>service-translation</module>
+        <!-- 核心服务增强模块 -->
+        <!-- SDK和中间件模块 -->
+        <module>lib-videoengine</module>
+        <module>lib-effects</module>
+        <!-- 性能优化模块 -->
+        <module>performance-optimizer</module>
+        <!-- 安全增强模块 -->
+        <module>security-encryption</module>
+        <!-- 测试和质量保证模块 -->
+        <module>test-automation</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Boot Dependencies -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud Dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Alibaba Cloud Dependencies -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- MySQL Connector -->
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql.connector.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
