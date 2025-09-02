@@ -1,0 +1,26 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: service-storage
+
+oss:
+  endpoint: oss-cn-hangzhou.aliyuncs.com
+  accessKeyId: your-access-key-id
+  accessKeySecret: your-access-key-secret
+  bucketName: your-bucket-name
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    '[com.haiya.storage]': DEBUG
+    '[org.springframework.web]': DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/storage-service.log

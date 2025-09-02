@@ -1,0 +1,13 @@
+com\haiya\storage\entity\EdgeNode$NodeStatus.class
+com\haiya\storage\entity\CDNConfig$CDNProvider.class
+com\haiya\storage\entity\CDNConfig$SecuritySetting.class
+com\haiya\storage\entity\CDNConfig$CompressionSetting.class
+com\haiya\storage\entity\EdgeNode$NodeCapability.class
+com\haiya\storage\controller\StorageController.class
+com\haiya\storage\entity\EdgeNode.class
+com\haiya\storage\entity\FileMetadata.class
+com\haiya\storage\entity\CDNConfig.class
+com\haiya\storage\service\impl\OSSStorageServiceImpl.class
+com\haiya\storage\StorageServiceApplication.class
+com\haiya\storage\service\StorageService.class
+com\haiya\storage\entity\CDNConfig$CacheStrategy.class
