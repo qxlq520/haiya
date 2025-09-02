@@ -1,0 +1,160 @@
+server: 
+  port: 8080 
+  address: localhost 
+ 
+spring: 
+  application: 
+    name: service-gateway 
+  cloud: 
+    gateway: 
+      discovery: 
+        locator: 
+          enabled: true 
+          lower-case-service-id: true 
+      routes: 
+        - id: user-service 
+          uri: lb://user-service 
+          predicates: 
+            - Path=/api/user/** 
+          filters: 
+            - StripPrefix=2 
+        - id: auth-service 
+          uri: lb://user-service 
+          predicates: 
+            - Path=/api/auth/** 
+          filters: 
+            - StripPrefix=2 
+        - id: video-service 
+          uri: lb://video-service 
+          predicates: 
+            - Path=/api/video/** 
+          filters: 
+            - StripPrefix=2 
+        - id: comment-service 
+          uri: lb://comment-service 
+          predicates: 
+            - Path=/api/comment/** 
+          filters: 
+            - StripPrefix=2 
+        - id: like-service 
+          uri: lb://like-service 
+          predicates: 
+            - Path=/api/like/** 
+          filters: 
+            - StripPrefix=2 
+        - id: follow-service 
+          uri: lb://follow-service 
+          predicates: 
+            - Path=/api/follow/** 
+          filters: 
+            - StripPrefix=2 
+        - id: message-service 
+          uri: lb://message-service 
+          predicates: 
+            - Path=/api/message/** 
+          filters: 
+            - StripPrefix=2 
+        - id: live-service 
+          uri: lb://live-service 
+          predicates: 
+            - Path=/api/live/** 
+          filters: 
+            - StripPrefix=2 
+        - id: recommend-service 
+          uri: lb://recommend-service 
+          predicates: 
+            - Path=/api/recommend/** 
+          filters: 
+            - StripPrefix=2 
+        - id: search-service 
+          uri: lb://search-service 
+          predicates: 
+            - Path=/api/search/** 
+          filters: 
+            - StripPrefix=2 
+        - id: payment-service 
+          uri: lb://payment-service 
+          predicates: 
+            - Path=/api/payment/** 
+          filters: 
+            - StripPrefix=2 
+        - id: ecommerce-service 
+          uri: lb://ecommerce-service 
+          predicates: 
+            - Path=/api/ecommerce/** 
+          filters: 
+            - StripPrefix=2 
+        - id: ad-service 
+          uri: lb://ad-service 
+          predicates: 
+            - Path=/api/ad/** 
+          filters: 
+            - StripPrefix=2 
+        - id: order-service 
+          uri: lb://order-service 
+          predicates: 
+            - Path=/api/order/** 
+          filters: 
+            - StripPrefix=2 
+        - id: article-service 
+          uri: lb://article-service 
+          predicates: 
+            - Path=/api/article/** 
+          filters: 
+            - StripPrefix=2 
+        - id: product-service 
+          uri: lb://product-service 
+          predicates: 
+            - Path=/api/product/** 
+          filters: 
+            - StripPrefix=2 
+        - id: qanda-service 
+          uri: lb://qanda-service 
+          predicates: 
+            - Path=/api/qanda/** 
+          filters: 
+            - StripPrefix=2 
+        - id: notification-service 
+          uri: lb://notification-service 
+          predicates: 
+            - Path=/api/notification/** 
+          filters: 
+            - StripPrefix=2 
+        - id: gift-service 
+          uri: lb://gift-service 
+          predicates: 
+            - Path=/api/gift/** 
+          filters: 
+            - StripPrefix=2 
+        - id: group-service 
+          uri: lb://group-service 
+          predicates: 
+            - Path=/api/group/** 
+          filters: 
+            - StripPrefix=2 
+        - id: story-service 
+          uri: lb://story-service 
+          predicates: 
+            - Path=/api/story/** 
+          filters: 
+            - StripPrefix=2 
+        - id: topic-service 
+          uri: lb://topic-service 
+          predicates: 
+            - Path=/api/topic/** 
+          filters: 
+            - StripPrefix=2 
+        - id: campaign-service 
+          uri: lb://campaign-service 
+          predicates: 
+            - Path=/api/campaign/** 
+          filters: 
+            - StripPrefix=2 
+ 
+eureka: 
+  client: 
+    serviceUrl: 
+      defaultZone: http://localhost:8761/eureka/ 
+  instance: 
+    prefer-ip-address: true 
+    ip-address: localhost 

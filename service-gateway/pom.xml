@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.haiya</groupId>
+        <artifactId>haiya-backend</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>service-gateway</artifactId>
+    <packaging>jar</packaging>
+
+    <name>service-gateway</name>
+    <description>API Gateway for Haiya Platform</description>
+
+    <properties>
+        <skywalking.version>8.10.0</skywalking.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        
+        <!-- 添加Spring Boot Actuator用于监控 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        
+        <!-- 添加Micrometer支持Prometheus监控 -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        
+        <!-- 添加SkyWalking APM依赖 -->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-trace</artifactId>
+            <version>${skywalking.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-logback-1.x</artifactId>
+            <version>${skywalking.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

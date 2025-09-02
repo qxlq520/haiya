@@ -1,0 +1,51 @@
+server: 
+  port: 8080 
+  address: localhost 
+ 
+spring: 
+  application: 
+    name: service-gateway 
+  cloud: 
+    gateway: 
+      routes: 
+        - id: user-service 
+          uri: lb://user-service 
+          predicates: 
+            - Path=/api/user/** 
+        - id: video-service 
+          uri: lb://video-service 
+          predicates: 
+            - Path=/api/video/** 
+        - id: recommend-service 
+          uri: lb://recommend-service 
+          predicates: 
+            - Path=/api/recommend/** 
+        - id: live-service 
+          uri: lb://live-service 
+          predicates: 
+            - Path=/api/live/** 
+        - id: search-service 
+          uri: lb://search-service 
+          predicates: 
+            - Path=/api/search/** 
+        - id: payment-service 
+          uri: lb://payment-service 
+          predicates: 
+            - Path=/api/payment/** 
+ 
+eureka: 
+  client: 
+    serviceUrl: 
+      defaultZone: http://localhost:8761/eureka/ 
+  instance: 
+    prefer-ip-address: true 
+    ip-address: localhost 
+ 
+logging: 
+  level: 
+    "[org.springframework.cloud.gateway]": INFO 
+    "[org.springframework.web]": INFO 
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] n" 
+  file: 
+    name: logs/gateway-service.log 

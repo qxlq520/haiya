@@ -1,0 +1,16 @@
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\controller\ServiceManagementController.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\RegistryApplication.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\entity\Service.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\entity\ServiceGovernance.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\entity\ServiceConfig.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\repository\ServiceConfigRepository.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\service\ServiceManagementService.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\entity\ServiceStatus.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\service\ArchitectureService.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\config\ServiceRegistryConfig.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\controller\ServiceRegistryController.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\repository\ServiceRepository.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\entity\ConfigType.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\entity\ContainerDeployment.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\ServiceRegistryApplication.java
+E:\root\haiya\haiya-backend\service-registry\src\main\java\com\haiya\registry\service\impl\ServiceRegistryServiceImpl.java
