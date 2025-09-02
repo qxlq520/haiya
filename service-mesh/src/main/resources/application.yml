@@ -1,0 +1,112 @@
+server:
+  port: 8122
+
+spring:
+  application:
+    name: service-mesh
+    
+  datasource:
+    url: jdbc:mysql://localhost:3306/haiya_mesh
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: your_username
+    password: your_password
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+      
+  redis:
+    host: localhost
+    port: 6379
+    
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: your_username
+    password: your_password
+    
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: mesh-group
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  cloud:
+    gateway:
+      routes:
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/api/users/**
+        - id: service-video
+          uri: lb://service-video
+          predicates:
+            - Path=/api/videos/**
+        - id: service-product
+          uri: lb://service-product
+          predicates:
+            - Path=/api/products/**
+        - id: service-order
+          uri: lb://service-order
+          predicates:
+            - Path=/api/orders/**
+            
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+mesh:
+  # 流量控制配置
+  traffic:
+    enabled: true
+    default-timeout: 5000 # 默认超时时间(毫秒)
+    retry-attempts: 3 # 默认重试次数
+    
+  # 熔断器配置
+  circuit-breaker:
+    enabled: true
+    failure-rate-threshold: 50 # 失败率阈值(%)
+    slow-call-rate-threshold: 100 # 慢调用率阈值(%)
+    wait-duration-in-open-state: 60000 # 打开状态持续时间(毫秒)
+    permitted-number-of-calls-in-half-open-state: 10 # 半开状态允许调用数
+    sliding-window-size: 100 # 滑动窗口大小
+    minimum-number-of-calls: 10 # 最小调用数
+    slow-call-duration-threshold: 5000 # 慢调用时间阈值(毫秒)
+    
+  # 限流配置
+  rate-limiter:
+    enabled: true
+    default-limit-for-period: 100 # 默认周期内限制请求数
+    default-limit-refresh-period: 1000 # 默认限制刷新周期(毫秒)
+    default-timeout-duration: 100 # 默认超时时间(毫秒)
+    
+  # 服务降级配置
+  fallback:
+    enabled: true
+    default-message: "服务暂时不可用，请稍后再试" # 默认降级消息
+    
+  # 异步处理配置
+  async:
+    enabled: true
+    core-pool-size: 10 # 核心线程数
+    max-pool-size: 50 # 最大线程数
+    queue-capacity: 1000 # 队列容量
+    
+  # 消息队列配置
+  messaging:
+    rabbitmq:
+      enabled: true
+      exchange: mesh.exchange
+      routing-key-prefix: mesh.event
+    kafka:
+      enabled: true
+      topic: mesh.events
+      partitions: 6
+      replication-factor: 3

@@ -1,0 +1,172 @@
+{
+  "properties": [
+    {
+      "name": "mesh.traffic.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用流量控制.",
+      "defaultValue": true
+    },
+    {
+      "name": "mesh.traffic.default-timeout",
+      "type": "java.lang.Integer",
+      "description": "默认超时时间(毫秒).",
+      "defaultValue": 5000
+    },
+    {
+      "name": "mesh.traffic.retry-attempts",
+      "type": "java.lang.Integer",
+      "description": "默认重试次数.",
+      "defaultValue": 3
+    },
+    {
+      "name": "mesh.circuit-breaker.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用熔断器.",
+      "defaultValue": true
+    },
+    {
+      "name": "mesh.circuit-breaker.failure-rate-threshold",
+      "type": "java.lang.Integer",
+      "description": "失败率阈值(%).",
+      "defaultValue": 50
+    },
+    {
+      "name": "mesh.circuit-breaker.slow-call-rate-threshold",
+      "type": "java.lang.Integer",
+      "description": "慢调用率阈值(%).",
+      "defaultValue": 100
+    },
+    {
+      "name": "mesh.circuit-breaker.wait-duration-in-open-state",
+      "type": "java.lang.Integer",
+      "description": "打开状态持续时间(毫秒).",
+      "defaultValue": 60000
+    },
+    {
+      "name": "mesh.circuit-breaker.permitted-number-of-calls-in-half-open-state",
+      "type": "java.lang.Integer",
+      "description": "半开状态允许调用数.",
+      "defaultValue": 10
+    },
+    {
+      "name": "mesh.circuit-breaker.sliding-window-size",
+      "type": "java.lang.Integer",
+      "description": "滑动窗口大小.",
+      "defaultValue": 100
+    },
+    {
+      "name": "mesh.circuit-breaker.minimum-number-of-calls",
+      "type": "java.lang.Integer",
+      "description": "最小调用数.",
+      "defaultValue": 10
+    },
+    {
+      "name": "mesh.circuit-breaker.slow-call-duration-threshold",
+      "type": "java.lang.Integer",
+      "description": "慢调用时间阈值(毫秒).",
+      "defaultValue": 5000
+    },
+    {
+      "name": "mesh.rate-limiter.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用限流.",
+      "defaultValue": true
+    },
+    {
+      "name": "mesh.rate-limiter.default-limit-for-period",
+      "type": "java.lang.Integer",
+      "description": "默认周期内限制请求数.",
+      "defaultValue": 100
+    },
+    {
+      "name": "mesh.rate-limiter.default-limit-refresh-period",
+      "type": "java.lang.Integer",
+      "description": "默认限制刷新周期(毫秒).",
+      "defaultValue": 1000
+    },
+    {
+      "name": "mesh.rate-limiter.default-timeout-duration",
+      "type": "java.lang.Integer",
+      "description": "默认超时时间(毫秒).",
+      "defaultValue": 100
+    },
+    {
+      "name": "mesh.fallback.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用服务降级.",
+      "defaultValue": true
+    },
+    {
+      "name": "mesh.fallback.default-message",
+      "type": "java.lang.String",
+      "description": "默认降级消息.",
+      "defaultValue": "服务暂时不可用，请稍后再试"
+    },
+    {
+      "name": "mesh.async.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用异步处理.",
+      "defaultValue": true
+    },
+    {
+      "name": "mesh.async.core-pool-size",
+      "type": "java.lang.Integer",
+      "description": "核心线程数.",
+      "defaultValue": 10
+    },
+    {
+      "name": "mesh.async.max-pool-size",
+      "type": "java.lang.Integer",
+      "description": "最大线程数.",
+      "defaultValue": 50
+    },
+    {
+      "name": "mesh.async.queue-capacity",
+      "type": "java.lang.Integer",
+      "description": "队列容量.",
+      "defaultValue": 1000
+    },
+    {
+      "name": "mesh.messaging.rabbitmq.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用RabbitMQ.",
+      "defaultValue": true
+    },
+    {
+      "name": "mesh.messaging.rabbitmq.exchange",
+      "type": "java.lang.String",
+      "description": "RabbitMQ交换机名称.",
+      "defaultValue": "mesh.exchange"
+    },
+    {
+      "name": "mesh.messaging.rabbitmq.routing-key-prefix",
+      "type": "java.lang.String",
+      "description": "RabbitMQ路由键前缀.",
+      "defaultValue": "mesh.event"
+    },
+    {
+      "name": "mesh.messaging.kafka.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用Kafka.",
+      "defaultValue": true
+    },
+    {
+      "name": "mesh.messaging.kafka.topic",
+      "type": "java.lang.String",
+      "description": "Kafka主题名称.",
+      "defaultValue": "mesh.events"
+    },
+    {
+      "name": "mesh.messaging.kafka.partitions",
+      "type": "java.lang.Integer",
+      "description": "Kafka分区数.",
+      "defaultValue": 6
+    },
+    {
+      "name": "mesh.messaging.kafka.replication-factor",
+      "type": "java.lang.Integer",
+      "description": "Kafka副本因子.",
+      "defaultValue": 3
+    }
+  ]
+}
