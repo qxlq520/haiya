@@ -1,0 +1,12 @@
+com\haiya\database\sharding\PaginationOptimizationUtil$CursorPageResult.class
+com\haiya\database\sharding\DataSourceAspect.class
+com\haiya\database\sharding\ConnectionPoolMonitoringService.class
+com\haiya\database\sharding\DataSourceContextHolder.class
+com\haiya\database\sharding\PaginationOptimizationUtil.class
+com\haiya\database\sharding\ConnectionPoolMonitoringController.class
+com\haiya\database\sharding\DatabaseOptimizationConfig.class
+com\haiya\database\sharding\DatabaseOptimizationConfig$1.class
+com\haiya\database\sharding\PaginationOptimizationUtil$Identifiable.class
+com\haiya\database\sharding\MasterOnly.class
+com\haiya\database\sharding\DatabaseShardingApplication.class
+com\haiya\database\sharding\example\UserService.class
