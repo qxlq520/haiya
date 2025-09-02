@@ -1,0 +1,6 @@
+com\haiya\like\service\LikeService.class
+com\haiya\like\LikeServiceApplication.class
+com\haiya\like\controller\LikeController.class
+com\haiya\like\dto\LikeDto.class
+com\haiya\like\repository\LikeRepository.class
+com\haiya\like\entity\Like.class
